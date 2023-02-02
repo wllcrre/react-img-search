@@ -9,16 +9,23 @@ module.exports = {
   },
   // --------- 把所有的js檔都用Babel編譯過 -----------
   module: {
-    rules: [{
-      test: /.js$/,
-      exclude: /node_modules/, //不編譯的檔案
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-react', '@babel/preset-env']
+    rules: [
+      {
+        test: /.js$/,
+        exclude: /node_modules/, //不編譯的檔案
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-react', '@babel/preset-env']
+          }
         }
+      },
+      // --------- CSS Loader -----------
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       }
-    }, ]
+    ]
   },
   //------ webpack-dev-server 一改程式碼就能預覽到結果 ------
   devServer: {
