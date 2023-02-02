@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './App.css';
@@ -8,47 +8,44 @@ import SearchForm from './Components/SearchForm';
 
 const APP_ID = '6JJbm2PGIBx0oU-on2vqjzF9cwIAJ-EGMyjtf0KkToc';
 
-export default class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			imgs: [],
-			loadingState: true
-		};
-	}
+function App() {
 
-	componentDidMount() {
-		this.performSearch();
-	}
+	const [res, setRes] = useState([]);
+	const [loadingState, setLoadingState] = useState(true);
 
-	performSearch = (query = 'sun') => {
+	const fetchRequest = (query = 'sun') => {
 		axios
 			.get(
 				`https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${query}&client_id=${APP_ID}`
 			)
 			.then(data => {
-				this.setState({ imgs: data.data.results, loadingState: false });
+				setRes(data.data.results);
+				setLoadingState(false);
 			})
 			.catch(err => {
 				console.log('Error happened during fetching!', err);
 			});
 	};
 
-	render() {
-		return (
-			<div>
-				<div className="main-header">
-					<div className="inner">
-						<h1 className="main-title">ImageSearch</h1>
-						<SearchForm onSearch={this.performSearch} />
-					</div>
-				</div>
-				<div className="main-content">
-					{this.state.loadingState
-						? <p>Loading</p>
-						: <ImgList data={this.state.imgs} />}
+  useEffect(() => {
+  	fetchRequest();
+  }, []);
+
+	return (
+		<div>
+			<div className="main-header">
+				<div className="inner">
+					<h1 className="main-title">ImageSearch</h1>
 				</div>
 			</div>
-		);
-	}
+			<div className="main-content">
+					{loadingState
+						? <p>Loading</p>
+						: <ImgList data={res} />}				
+			</div>
+		</div>
+	);
 }
+
+export default App;
+
