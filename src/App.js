@@ -6,6 +6,8 @@ import ImgList from './Components/ImgList';
 import SearchForm from './Components/SearchForm';
 // import cred from './cred.js';
 
+import PaginatedItems from './Components/PaginatedItems';
+
 const APP_ID = '6JJbm2PGIBx0oU-on2vqjzF9cwIAJ-EGMyjtf0KkToc';
 
 function App() {
@@ -44,7 +46,8 @@ function App() {
 						<button type="button" className="btn btn-primary">Add Image</button>						
 						{loadingState
 							? <p>Loading</p>
-							: <ImgList data={res} />}				
+							: <PaginatedItems itemsPerPage={5} imgList={res} />
+						}				
 					</div>
 				</div>
 			</div>
