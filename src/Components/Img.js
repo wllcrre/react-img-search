@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Img = props => (
-  <li className="img-wrap">
+  <div className="grid-item">
     <img src={props.url} alt=""/>
-  </li>
+  </div>  
 );
 
 export default Img;

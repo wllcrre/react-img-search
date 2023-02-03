@@ -42,7 +42,7 @@ input:focus {
   border-color: #c1c1c1;
 }
 
-button {
+/* button {
   width: 40px;
   height: 35px;
   border: 0;
@@ -51,7 +51,7 @@ button {
   outline: 0;
   position: relative;
   z-index: 2000;
-}
+} */
 
 /* ================================= 
   Page Components
@@ -202,4 +202,68 @@ button {
   .img-list li:nth-of-type(3n+1) {
     clear: left;
   }
+}
+
+img {
+  height: 300px;
+  width: 100%;
+}
+
+.btn-close {
+  float: right;
+}
+
+.hide {
+  display: none;
+}
+
+.pagination {
+  margin-top: 30px;
+}
+
+/* ================================= 
+  Grid Layout
+==================================== */
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1px;
+    grid-auto-rows: minmax(180px, auto);
+    grid-auto-flow: dense;
+    padding: 1px;
+   
+    max-width: 400px;
+}
+
+.grid-item {
+    padding: 10px 0 0 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #000;
+    /* background-color: #ccc; */
+    border-radius: 10px;
+}
+
+/* ================================= 
+  Flex Layout
+==================================== */
+.fbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fbox-col {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction:column;
+}
+
+.fitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

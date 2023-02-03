@@ -28,7 +28,7 @@ function App() {
 	};
 
   useEffect(() => {
-  	fetchRequest();
+		fetchRequest();
   }, []);
 
 	return (
@@ -39,9 +39,14 @@ function App() {
 				</div>
 			</div>
 			<div className="main-content">
-					{loadingState
-						? <p>Loading</p>
-						: <ImgList data={res} />}				
+				<div className="fbox">
+					<div>
+						<button type="button" className="btn btn-primary">Add Image</button>						
+						{loadingState
+							? <p>Loading</p>
+							: <ImgList data={res} />}				
+					</div>
+				</div>
 			</div>
 		</div>
 	);
