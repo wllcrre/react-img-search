@@ -31,6 +31,7 @@ function App() {
 
   useEffect(() => {
 		fetchRequest();
+		console.log("fetchRequest");
   }, []);
 
 	return (

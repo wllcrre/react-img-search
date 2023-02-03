@@ -211,6 +211,10 @@ img {
 
 .btn-close {
   float: right;
+  position: relative;
+  top: 29px;
+  right: 9px;
+  background-color: white;
 }
 
 .hide {

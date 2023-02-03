@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Img = props => (
-  <div className="grid-item">
-    <img src={props.url} alt=""/>
-  </div>  
-);
+export default function Img(props) {
+  const [isShow, setIsShow] = useState(true);
 
-export default Img;
+  const handleClick = () => {
+    setIsShow(false);
+  };
+
+  var show = isShow ? 'block' : 'hide';
+
+  return (
+    <div className={'grid-item ' + show}>
+      <button type="button" className="btn-close" aria-label="Close"
+        onClick = {handleClick}
+      ></button>      
+      <img src={props.url} alt=""/>
+    </div>
+  );
+}
