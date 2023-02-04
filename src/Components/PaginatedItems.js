@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import Img from './Img';
 import NoImgs from './NoImgs';
 
-function Items({ currentItems }) {
+function Items({ currentItems,imgList }) {
   return (
     <div className = "items grid-layout">
       {currentItems && currentItems.map((item) => (
-        <Img url={item.urls.small} key={item.id} />
+        <Img url={item.urls.small} key={item.id} imgID={item.id} display={item.display} imgList={imgList}/>
       ))}
     </div>
   );
@@ -28,6 +28,8 @@ export default function PaginatedItems({ itemsPerPage, imgList  }) {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 
     console.log(imgList.length);
+    console.log(imgList);
+
     setCurrentItems(imgList.slice(itemOffset, endOffset));
 
     console.log(imgList.slice(itemOffset, endOffset));
@@ -46,7 +48,7 @@ export default function PaginatedItems({ itemsPerPage, imgList  }) {
   if(imgList.length > 0){
     return (
       <>
-        <Items currentItems={currentItems} />
+        <Items currentItems={currentItems} imgList={imgList}/>
         <ReactPaginate
           nextLabel="next >"
           onPageChange={handlePageClick}

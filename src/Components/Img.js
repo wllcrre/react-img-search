@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 
-export default function Img(props) {
-  const [isShow, setIsShow] = useState(true);
+export default function Img({url,imgID,display,imgList,key}) {
+  const [isShow, setIsShow] = useState(display);
 
   const handleClick = () => {
-    setIsShow(false);
+    setIsShow('hide'); // hide the image 
+
+    //save hide stat to imaList
+    for (const img of imgList) {
+      if (img.id == imgID) {
+        img.display = 'hide';
+      }
+    }
   };
 
-  var show = isShow ? 'block' : 'hide';
-
   return (
-    <div className={'grid-item ' + show}>
+    <div className={'grid-item ' + isShow}>
       <button type="button" className="btn-close" aria-label="Close"
         onClick = {handleClick}
       ></button>      
-      <img src={props.url} alt=""/>
+      <img src={url} alt=""/>
     </div>
   );
 }

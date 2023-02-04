@@ -21,7 +21,13 @@ function App() {
 				`https://api.unsplash.com/search/photos/?page=1&per_page=10&query=${query}&client_id=${APP_ID}`
 			)
 			.then(data => {
-				setRes(data.data.results);
+
+				var imgList = data.data.results.map(img => {
+					img.display = 'block';
+					return img;
+				})
+				
+				setRes(imgList);
 				setLoadingState(false);
 			})
 			.catch(err => {
