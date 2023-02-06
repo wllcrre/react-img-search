@@ -68,7 +68,7 @@ function App() {
 
 	return (
 		<div>
-			<div className="main-header">
+			<div className="main-header hide">
 				<div className="inner">
 					<h1 className="main-title">ImageSearch</h1>
 				</div>
