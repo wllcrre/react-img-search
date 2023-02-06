@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Img({url,imgID,display,imgList,key}) {
+export default function Img({url,imgID,display,imgList}) {
   const [isShow, setIsShow] = useState(display);
 
   const handleClick = () => {

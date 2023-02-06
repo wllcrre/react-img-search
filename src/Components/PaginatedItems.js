@@ -13,7 +13,7 @@ function Items({ currentItems,imgList }) {
   );
 }
 
-export default function PaginatedItems({ itemsPerPage, imgList  }) {
+export default function PaginatedItems({ itemsPerPage, imgList ,addingState }) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -31,11 +31,11 @@ export default function PaginatedItems({ itemsPerPage, imgList  }) {
     console.log(imgList);
 
     setCurrentItems(imgList.slice(itemOffset, endOffset));
-
-    console.log(imgList.slice(itemOffset, endOffset));
+    // console.log(imgList.slice(itemOffset, endOffset));
 
     setPageCount(Math.ceil(imgList.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+
+  }, [itemOffset, itemsPerPage, addingState]);// pass addingState to dymanic add image
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
