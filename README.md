@@ -12,5 +12,4 @@
 - 使用 react state 做元件狀態管理
 - 使用 axios api 做 api request
 - 支持動態加入子元件
-- 使用 unsplash 作為圖片 API resource
-
+- 使用 unsplash.com 作為圖片 API resource
