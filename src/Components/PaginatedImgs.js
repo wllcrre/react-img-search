@@ -26,15 +26,15 @@ export default function PaginatedImgs({ itemsPerPage, imgList ,addingState }) {
 
   const onPrevClick = event => {
     if(pageNum != 1){
-      setItemOffset(itemOffset - itemsPerPage);
-      setPageNum(pageNum - 1);
+      setItemOffset(itemOffset => itemOffset - itemsPerPage);
+      setPageNum(pageNum => pageNum - 1);
     }
   };
   
   const onNextClick = event => {
     if (pageNum != pageCount) {
-      setItemOffset(itemOffset + itemsPerPage);
-      setPageNum(pageNum + 1);
+      setItemOffset(itemOffset => itemOffset + itemsPerPage);
+      setPageNum(pageNum => pageNum + 1);
     }
   };
 
