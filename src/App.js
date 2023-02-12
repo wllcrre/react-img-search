@@ -20,7 +20,7 @@ function App() {
 			)
 			.then(data => {
 
-				var imgList = data.data.results.map(img => {
+				let imgList = data.data.results.map(img => {
 					img.display = 'block';
 					return img;
 				})
@@ -40,7 +40,7 @@ function App() {
 			)
 			.then(data => {
 
-				var img = data.data;
+				let img = data.data;
 				img.display = 'block';
 
 				setAddingState(false);

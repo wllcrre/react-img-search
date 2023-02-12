@@ -5,8 +5,8 @@ import NoImgs from './NoImgs';
 function Items({ currentItems,imgList }) {
   return (
     <div className = "items grid-layout mb-4">
-      {currentItems && currentItems.map((item) => (
-        <Img url={item.urls.small} key={item.id} imgID={item.id} display={item.display} imgList={imgList}/>
+      {currentItems && currentItems.map((item,index) => (
+        <Img url={item.urls.small} key={index} imgID={item.id} display={item.display} imgList={imgList}/>
       ))}
     </div>
   );
