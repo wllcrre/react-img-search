@@ -7,6 +7,7 @@ import SearchForm from './Components/SearchForm';
 // import cred from './cred.js';
 
 import PaginatedItems from './Components/PaginatedItems';
+import PaginatedImgs from './Components/PaginatedImgs';
 
 const APP_ID = '6JJbm2PGIBx0oU-on2vqjzF9cwIAJ-EGMyjtf0KkToc';
 
@@ -79,10 +80,16 @@ function App() {
 						<button type="button" className="btn btn-primary"
 							onClick={onAddImgClick}
 						>Add Image</button>						
-						{loadingState
+						{/* {loadingState
 							? <p>Loading</p>
 							: <PaginatedItems itemsPerPage={5} imgList={res} addingState={addingState}/>
-						}				
+						}	 */}
+
+						{loadingState
+							? <p>Loading</p>
+							: <PaginatedImgs itemsPerPage={5} imgList={res} addingState={addingState}/>
+						}	
+						
 					</div>
 				</div>
 			</div>

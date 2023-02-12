@@ -221,6 +221,10 @@ img {
   display: none;
 }
 
+.mr-3 {
+  margin-right: 30px;
+}
+
 .pagination {
   margin-top: 30px;
 }
