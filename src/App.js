@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './App.css';
-import ImgList from './Components/ImgList';
-import SearchForm from './Components/SearchForm';
-// import cred from './cred.js';
-
-import PaginatedItems from './Components/PaginatedItems';
 import PaginatedImgs from './Components/PaginatedImgs';
 
 const APP_ID = '6JJbm2PGIBx0oU-on2vqjzF9cwIAJ-EGMyjtf0KkToc';
@@ -34,7 +29,7 @@ function App() {
 				setLoadingState(false);
 			})
 			.catch(err => {
-				console.log('Error happened during fetching!', err);
+				console.log('Error happened during imageList fetching!', err);
 			});
 	};
 
@@ -52,7 +47,7 @@ function App() {
 				res.push(img);
 			})
 			.catch(err => {
-				console.log('Error happened during fetching!', err);
+				console.log('Error happened during addImage fetching!', err);
 			});
 	};
 
@@ -69,22 +64,12 @@ function App() {
 
 	return (
 		<div>
-			<div className="main-header hide">
-				<div className="inner">
-					<h1 className="main-title">ImageSearch</h1>
-				</div>
-			</div>
 			<div className="main-content">
 				<div className="fbox">
 					<div>
 						<button type="button" className="btn btn-primary"
 							onClick={onAddImgClick}
 						>Add Image</button>						
-						{/* {loadingState
-							? <p>Loading</p>
-							: <PaginatedItems itemsPerPage={5} imgList={res} addingState={addingState}/>
-						}	 */}
-
 						{loadingState
 							? <p>Loading</p>
 							: <PaginatedImgs itemsPerPage={5} imgList={res} addingState={addingState}/>
