@@ -43,8 +43,11 @@ function App() {
 				let img = data.data;
 				img.display = 'block';
 
+				let res_ = res;
+				res_.push(img);
+
+				setRes(res_);
 				setAddingState(false);
-				res.push(img);
 			})
 			.catch(err => {
 				console.log('Error happened during addImage fetching!', err);

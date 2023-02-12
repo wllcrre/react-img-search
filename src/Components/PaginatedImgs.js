@@ -5,8 +5,8 @@ import NoImgs from './NoImgs';
 function Items({ currentItems,imgList }) {
   return (
     <div className = "items grid-layout mb-4">
-      {currentItems && currentItems.map((item,index) => (
-        <Img url={item.urls.small} key={index} imgID={item.id} display={item.display} imgList={imgList}/>
+      {currentItems && currentItems.map((item) => (
+        <Img url={item.urls.small} key={item.id} imgID={item.id} display={item.display} imgList={imgList}/>
       ))}
     </div>
   );
@@ -41,7 +41,9 @@ export default function PaginatedImgs({ itemsPerPage, imgList ,addingState }) {
   useEffect(() => {
     let endOffset = itemOffset + itemsPerPage;
 
-    pageCount = Math.ceil(imgList.length / itemsPerPage)
+    pageCount = Math.ceil(imgList.length / itemsPerPage);
+
+    console.log('pageCount:' + pageCount);
 
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     
